@@ -28,9 +28,14 @@ public class RestapiApplication {
 		return headers;
 	}
 
-	private String sessionId() {
+	public String sessionId() {
 		ResponseEntity<String> response = restTemplate.exchange(URL_USER, HttpMethod.GET, httpEntity, String.class);
-		return response.getHeaders().get("Set-Cookie").stream().findFirst().orElseThrow();
+		List<String> cookies = response.getHeaders().get("Set-Cookie");
+		if (cookies != null && !cookies.isEmpty()) {
+			return cookies.stream().findFirst().orElseThrow();
+		} else {
+			throw new IllegalStateException("В заголовках ответа не найден идентификатор.");
+		}
 	}
 
 	public String getAllUsers() {
@@ -48,6 +53,7 @@ public class RestapiApplication {
 	}
 
 	public String updateUser(User user) {
+
 		httpEntity = new HttpEntity<>(user, headers);
 		ResponseEntity<String> response = restTemplate
 				.exchange(URL_USER, HttpMethod.PUT, httpEntity, String.class);
@@ -66,7 +72,7 @@ public class RestapiApplication {
 		RestTemplate restTemplate1 = new RestTemplate();
 		HttpEntity<String> httpEntity = new HttpEntity<>(headers1);
 		User user = new User(3, "James", "Brown", (byte) 21);
-		User updateUser = new User(3, "Tomas", "Shelby", (byte) 21);
+		User updateUser = new User(3, "Thomas", "Shelby", (byte) 21);
 
 		RestapiApplication restApiApplication = new RestapiApplication(headers1, restTemplate1, httpEntity);
 		System.out.println(restApiApplication.getAllUsers());
