@@ -65,8 +65,8 @@ public class RestapiApplication {
 		HttpHeaders headers1 = new HttpHeaders();
 		RestTemplate restTemplate1 = new RestTemplate();
 		HttpEntity<String> httpEntity = new HttpEntity<>(headers1);
-		User user = new User(3, "James", "Brown", (byte) 22);
-		User updateUser = new User(3, "Tomas", "Shelby", (byte) 22);
+		User user = new User(3, "James", "Brown", (byte) 21);
+		User updateUser = new User(3, "Tomas", "Shelby", (byte) 21);
 
 		RestapiApplication restApiApplication = new RestapiApplication(headers1, restTemplate1, httpEntity);
 		System.out.println(restApiApplication.getAllUsers());
