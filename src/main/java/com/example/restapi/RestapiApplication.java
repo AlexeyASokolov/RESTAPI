@@ -54,7 +54,7 @@ public class RestapiApplication {
 		return response.getBody();
 	}
 
-	public String deleteUser(Long id) {
+	public String deleteUser(long id) {
 		httpEntity = new HttpEntity<>(headers);
 		ResponseEntity<String> response = restTemplate
 				.exchange(URL_USER + "/" + id, HttpMethod.DELETE, httpEntity, String.class);
@@ -65,8 +65,8 @@ public class RestapiApplication {
 		HttpHeaders headers1 = new HttpHeaders();
 		RestTemplate restTemplate1 = new RestTemplate();
 		HttpEntity<String> httpEntity = new HttpEntity<>(headers1);
-		User user = new User(3L, "James", "Brown", (byte) 35);
-		User updateUser = new User(3L, "Tomas", "Shelby", (byte) 55);
+		User user = new User(3L, "James", "Brown", (byte) 22);
+		User updateUser = new User(3L, "Tomas", "Shelby", (byte) 22);
 
 		RestapiApplication restApiApplication = new RestapiApplication(headers1, restTemplate1, httpEntity);
 		System.out.println(restApiApplication.getAllUsers());

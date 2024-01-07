@@ -13,8 +13,7 @@ public class User implements Serializable {
     private String lastName;
     private Byte age;
 
-    public User() {
-    }
+
 
     public User(Long id, String name, String lastName, Byte age) {
         this.id = id;
