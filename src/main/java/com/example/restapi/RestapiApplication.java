@@ -6,7 +6,7 @@ import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
-
+//5ebfebe7cb9786c496
 @SpringBootApplication
 public class RestapiApplication {
 
@@ -65,8 +65,8 @@ public class RestapiApplication {
 		HttpHeaders headers1 = new HttpHeaders();
 		RestTemplate restTemplate1 = new RestTemplate();
 		HttpEntity<String> httpEntity = new HttpEntity<>(headers1);
-		User user = new User(3L, "James", "Brown", (byte) 15);
-		User updateUser = new User(3L, "Tomas", "Shelby", (byte) 15);
+		User user = new User(3L, "James", "Brown", (byte) 35);
+		User updateUser = new User(3L, "Tomas", "Shelby", (byte) 55);
 
 		RestapiApplication restApiApplication = new RestapiApplication(headers1, restTemplate1, httpEntity);
 		System.out.println(restApiApplication.getAllUsers());
