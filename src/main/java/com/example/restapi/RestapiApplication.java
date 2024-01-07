@@ -6,7 +6,6 @@ import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
-//5ebfebe7cb9786c496
 @SpringBootApplication
 public class RestapiApplication {
 
